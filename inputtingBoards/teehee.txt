@@ -1,0 +1,9 @@
+smile
+frown
+jump
+squat
+fall
+trip
+glide
+fly
+this file is only here to make sure that the board converter is able to filter out what is and is not a board
