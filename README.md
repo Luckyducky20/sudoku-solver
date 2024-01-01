@@ -7,8 +7,15 @@
 ### Project Structure: 
 
 - __include__
-- __\_testing__
+  - Holds all the important files/utilities that the program needs to run
+- __workInProgress__
   - Used for features that are currently in developement before they get added officially to the project.
+- test
+  - animated
+    - has animated test that you can run to make sure that the program is still running as intended and a way to test out some features that are in development
+  - basic
+    - has basic test that you can run to make sure that the program is still running as intended and a way to test out some features that are in development
+  - This directory is strictly for running test on program utilities/features.
 - __boards__
 	- holds all the boards in a format that the program understands
 - __batches__
@@ -54,8 +61,8 @@
 ### Why I Made This Project: 
 This is my own personal project that I decided to start working on near the end of 2023.
 I chose to work on this project because I wanted to apply using C++ outside of a school setting.
-Something to note is that in early summer of 2022, I developed this algorithm on my own.
-To my current knowledge there does not exist another algorithm like mine that exists.
+Something to note is that in early summer of 2023, I developed this algorithm on my own.
+To my current knowledge there is not another algorithm like mine that exists.
 The inspiration behind my algorithm was from a CSCI course at my home town college in Missoula, Montana.
 In the course, we were tasked with developing a program in Java to make a program that __solves__ a sudoku board.
 I did this fairly quickly, but there was always the thought of "*is this efficient?*".

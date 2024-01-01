@@ -1,5 +1,5 @@
 #include <iostream>
-#include "consoleColors.h"
+#include "../../include/consoleColors.h"
 
 using namespace std;
 
@@ -25,13 +25,6 @@ int main()
   cout << colorPal.boldF << "bold" << colorPal.resetColor << "\n";
   cout << colorPal.underLine << "underline" << colorPal.resetColor << "\n";
   cout << colorPal.yellowF << colorPal.redB << "before" << colorPal.inverseColors << "inversed" << colorPal.resetColor << "\n";
-
-
-
-
-
-
-
 
   return 0;
 }

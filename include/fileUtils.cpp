@@ -15,8 +15,8 @@ using std::vector;
 
 namespace fs = std::filesystem;
 
-vector<string> getFileNames() {
-  fs::path dir_path = "../inputtingBoards";
+vector<string> getFileNames(string path) {
+  fs::path dir_path = path;
   vector<string> fileNames;
   for (const auto &entry : fs::directory_iterator(dir_path)) {
     if (entry.is_regular_file()) {
@@ -38,18 +38,20 @@ vector<string> getSpecificFileNames(fs::path dir_path) {
   return fileNames;
 }
 
-vector<string> getFileContents() {
+vector<string> getFileContents(string path) {
   vector<string> returningVector;
 
-  vector<string> fileNames = getFileNames();
+  vector<string> fileNames = getFileNames(path);
   ifstream fileReader;
   for (string fileName : fileNames) {
-    fileReader.open("../inputtingBoards/" + fileName);
+    fileReader.open(path + fileName);
 
     string fileString = "";
     string currentLine = "";
-
     while (getline(fileReader, currentLine)) {
+			// this is to remove the \r bit which can cause some issues
+			// not sure if this is just on WSL(windows subsystem for linux) though.
+			currentLine.pop_back();
       fileString += currentLine;
     }
     fileReader.close();
@@ -58,17 +60,17 @@ vector<string> getFileContents() {
   return returningVector;
 }
 
-void generateBoardBatch() {
-  vector<string> fileContents = getFileContents();
+void generateBoardBatch(string inputDirectory, string outputDirectory, string batchCountDirectory) {
+  vector<string> fileContents = getFileContents(inputDirectory);
   ofstream fileWriter;
   ifstream fileReader;
   //int currentBatchNum;
-  fileReader.open("../batches/batchCount");
+  fileReader.open(batchCountDirectory + "batchCount");
   if (!fileReader) {
-    fileWriter.open("../batches/batchCount");
+    fileWriter.open(batchCountDirectory + "batchCount");
     fileWriter << "0";
     fileWriter.close();
-    fileReader.open("../batches/batchCount");
+    fileReader.open(batchCountDirectory + "batchCount");
   }
 
   fileReader.close();

@@ -2,8 +2,8 @@
 #include <vector>
 #include <chrono>
 #include <thread>
-#include "boardNumber.h"
-#include "sudokuUtils.h"
+#include "../../include/boardNumber.h"
+#include "../../include/sudokuUtils.h"
 
 using std::cout;
 using std::string;

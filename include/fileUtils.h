@@ -10,8 +10,8 @@ using std::string;
 using std::vector;
 
 vector<string> getSpecificFileNames(std::filesystem::path);
-vector<string> getFileNames();
-vector<string> getFileContents();
+vector<string> getFileNames(string);
+vector<string> getFileContents(string);
 
 void generateBoardBatch();
 

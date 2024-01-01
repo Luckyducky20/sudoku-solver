@@ -3,9 +3,9 @@
 #include <vector>
 using std::to_string;
 
-#include "include/consoleColors.h"
+#include "../../include/consoleColors.h"
 
-#include "include/sudokuUtils.h"
+#include "../../include/sudokuUtils.h"
 
 using std::cin,std::vector,std::ofstream,std::ifstream,std::stoi,std::string,std::cout;
 
