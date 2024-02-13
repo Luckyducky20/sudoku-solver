@@ -9,7 +9,7 @@ class sudokuWindow
  * sudoku solving engine class
  * sudoku board class
  *
- *
+ * will hold the size of the tiles?
  *
  *
  *
