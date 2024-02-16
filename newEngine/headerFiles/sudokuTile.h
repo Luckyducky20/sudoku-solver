@@ -9,18 +9,18 @@ using std::vector;
 class sudokuTile
 {
   bool placed;
-  int tileNumber;
-  int noteCount;
+  int tileNumber; // the number that is displayed on the board that is not a note
+  int noteCount; // the amount of notes for this tile ( squareSize * squareSize )
   vector<bool> tileNotes;
 
 
   public:
     // constructors
-    sudokuTile(); 
+    sudokuTile(); //default size of 3 for square size
     sudokuTile(int); // adds the notes with a square size as the input
     sudokuTile(int,int); // places inputNumber and ignores adding the notes
 
-    void setNum(int);
+    void placeNum(int);
     void removeNote(int);
 
     int getTileNum();

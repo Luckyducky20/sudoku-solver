@@ -1,0 +1,32 @@
+
+add a check to see if there is one notes in a column, row or square instead of just checking if a square only has one note left
+
+for example if a square has all the tiles open and there is a tile that has a note of 4 and 6 but there is no other tiles with the note of 4 in the row, column or square, then we place the number
+
+
+make it so the algorithm only checks the row and column of where a number is placed
+for example, if there was a number placed in a tile on the very top left of the board, we would
+only want to check farthest left column and row for if the notes on any of those cells are the only
+ones that are left in their row/column
+
+in other words, go through each tile in the row and column of where a number is placed and check
+if there is another tile with that same note, if there isn't any other numbers, then that means we
+have found the location of where the number goes instead of going off of the lowest note count throughout the whole board.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

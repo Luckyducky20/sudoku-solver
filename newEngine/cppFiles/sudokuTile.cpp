@@ -61,7 +61,7 @@ vector<int> sudokuTile::getNotes()
 
 bool sudokuTile::isOneNote(){return noteCount == 1;}
 
-void sudokuTile::setNum(int tileNum)
+void sudokuTile::placeNum(int tileNum)
 {
   tileNumber = tileNum;
   placed = true;

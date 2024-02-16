@@ -6,10 +6,10 @@
 
 
 
-sudokuBoard::sudokuBoard(vector<vector<sudokuTile>> newBoard)
-  : board(newBoard)
+sudokuBoard::sudokuBoard(vector<vector<sudokuTile>> newBoard,int squareLength)
+  : board(newBoard);
+    squareSize(squareLength)
 {
-
 }
 
 void sudokuBoard::setSquareSize(int newSize)
@@ -17,14 +17,22 @@ void sudokuBoard::setSquareSize(int newSize)
   squareSize(newSize);
 }
 
-int sudokuBoard::setSquareSize(int newSize)
+int sudokuBoard::getSquareSize(int newSize)
 {
   return squareSize;
 }
 
 void sudokuBoard::addNumberNotes()
 {
-
+  for(int y=0;y<(squareSize*squareSize);++y)
+  {
+    for(int x=0;x<(squareSize*squareSize);++x)
+    {
+      columnNotes(y,x);
+      rowNotes(y,x);
+      squareNotes(y,x);
+    }
+  }
 }
 
 
@@ -133,9 +141,9 @@ void sudokuBoard::squareNotes(int y,int x)
 
 bool sudokuBoard::boardContainsNoteCount(int wantedNoteCount)
 {
-  for(int i=0;i<9;++i)
+  for(int i=0;i<(squareSize*squareSize);++i)
   {
-    for(int x=0;x<9;++x)
+    for(int x=0;x<(squareSize*squareSize);++x)
     {
       if(!board.at(y).at(x).isTaken())
       {
@@ -152,10 +160,10 @@ bool sudokuBoard::boardContainsNoteCount(int wantedNoteCount)
 vector<int> sudokuBoard::findLowestNoteCount(int wantedNum)
 {
   vector<int> coords{-1,-1};
-  int lowestCount(9); 
-  for(int y=0;y<9;++y)
+  int lowestCount(squareSize*squareSize); 
+  for(int y=0;y<(squareSize*squareSize);++y)
   {
-    for(int x=0;x<9;++x)
+    for(int x=0;x<(squareSize*squareSize);++x)
     {
       if(!board.at(y).at(x).isTaken())
       {
@@ -171,18 +179,20 @@ vector<int> sudokuBoard::findLowestNoteCount(int wantedNum)
   return coords;
 }
 
-void sudokuBoard::addFrontNumber(int y,int x,int number)
+void sudokuBoard::placeFrontNumber(int y,int x,int number)
 {
+  // can't add 0 and checking to see if the note is already crossed off
   if(number == 0 || !board.at(y).at(x).canBeHere(number))
   {
     return;
   }
-
-
-
-    
   
+  board.at(y).at(x).placeNum(number);
+  rowNotes(y,x);
+  columnNotes(y,x);
+  squareNotes(y,x);
 }
+
 bool sudokuBoard::isValidBoard()
 {
 

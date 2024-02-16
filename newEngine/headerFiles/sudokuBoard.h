@@ -11,10 +11,7 @@ class sudokuBoard
 
   public:
 
-    sudokuBoard(sudokuTile[9][9])
-      : board(inputTable)
-    {
-    }
+    sudokuBoard(vector<vector<sudokuTile>>,int);
     void setSquareSize(int); 
     int getSquareSize(int); 
     void addNumberNotes();
@@ -25,7 +22,7 @@ class sudokuBoard
 
     bool boardContainsNoteCount(int);
     vector<int> findLowestNoteCount(int);
-    void addFrontNumber(int,int,int);
+    void placeFrontNumber(int,int,int);
     bool isValidBoard();
     bool isBoardSolved();
     // ^-- this could check if the space count is 0, if its not, then its not solved
